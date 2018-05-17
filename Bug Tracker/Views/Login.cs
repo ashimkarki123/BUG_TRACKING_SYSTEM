@@ -87,5 +87,11 @@ namespace Bug_Tracker.Views
             this.Hide();
             new Admin().Show();
         }
+
+        private void aboutUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AboutUs().Show();
+        }
     }
 }

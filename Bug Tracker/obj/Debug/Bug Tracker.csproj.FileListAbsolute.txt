@@ -80,3 +80,4 @@ E:\Bug-Tracking-System\Bug Tracker\bin\Debug\Bug Tracker.exe.config
 E:\Bug-Tracking-System\Bug Tracker\bin\Debug\Bug Tracker.exe
 E:\Bug-Tracking-System\Bug Tracker\bin\Debug\Bug Tracker.pdb
 E:\Bug-Tracking-System\Bug Tracker\bin\Debug\FastColoredTextBox.xml
+E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.UpdateBug.resources

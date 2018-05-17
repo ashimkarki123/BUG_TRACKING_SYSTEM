@@ -69,6 +69,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\LoopPanel.cs" />
     <Compile Include="DAOImp\GenericDaoImp.cs" />
     <Compile Include="DAO\SystemAdminDAO.cs" />
     <Compile Include="DAO\BugDAO.cs" />
@@ -161,6 +162,12 @@
     <Compile Include="Views\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateBug.Designer.cs">
+      <DependentUpon>UpdateBug.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpdateBug.resx">
+      <DependentUpon>UpdateBug.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
