@@ -15,7 +15,31 @@ namespace Bug_Tracker.DAO
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlTransaction trans = conn.BeginTransaction();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.Transaction = trans;
+                sql.CommandText = "DELETE FROM tbl_image WHERE bug_id=@bugId";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@bugId", id);
+
+                sql.ExecuteNonQuery();
+                trans.Commit();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                trans.Rollback();
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public List<PictureViewModel> GetAll()
@@ -60,7 +84,31 @@ namespace Bug_Tracker.DAO
 
         public void Update(PictureViewModel t)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlTransaction trans = conn.BeginTransaction();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.Transaction = trans;
+                sql.CommandText = "UPDATE tbl_image SET image_name = @filename WHERE image_id = @imageId;";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@filename", t.ImageName);
+                sql.Parameters.AddWithValue("@imageId", t.ImageId);
+
+                sql.ExecuteNonQuery();
+
+                trans.Commit();
+            }
+            catch (SqlException ex)
+            {
+                trans.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

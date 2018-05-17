@@ -15,7 +15,31 @@ namespace Bug_Tracker.DAO
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlTransaction trans = conn.BeginTransaction();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.Transaction = trans;
+                sql.CommandText = "DELETE FROM tbl_code WHERE bug_id=@bugId";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@bugId", id);
+
+                sql.ExecuteNonQuery();
+                trans.Commit();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                trans.Rollback();
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public List<CodeViewModel> GetAll()

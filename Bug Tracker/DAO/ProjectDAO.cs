@@ -1,4 +1,5 @@
 ﻿using Bug_Tracker.Model;
+using Bug_Tracker.Views;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -139,5 +140,35 @@ namespace Bug_Tracker.DAO
                 conn.Close();
             }
         }
+        public List<string> GetAllProjectByUserId()
+        {
+            conn.Open();
+            List<string> list = new List<string>();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.CommandText = "SELECT pr.project_name FROM tbl_project pr JOIN tbl_project_programmer pp ON pr.project_id = pp.project_id JOIN tbl_programmer pro ON pp.programmer_id = pro.programmer_id WHERE pro.programmer_id = @userId ";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@userId", Login.userId);
+
+                using (SqlDataReader reader = sql.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(reader["project_name"].ToString());
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return list;
+        }
     }
 }
+
+ 

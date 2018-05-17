@@ -18,6 +18,9 @@ namespace Bug_Tracker.Model
         public string MethodName { get; set; }
         public int StartLine { get; set; }
         public int EndLine { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
+        public PictureViewModel Images { get; set; }
+        public CodeViewModel Codes { get; set; }
+        public VersionControl SourceControl { get; set; }
     }
 }
