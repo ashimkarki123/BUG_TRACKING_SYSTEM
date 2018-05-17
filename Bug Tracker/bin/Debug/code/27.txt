@@ -1,0 +1,23 @@
+ublic partial class Bugs : Form
+    {
+        public Bugs()
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeComponent();
+        }
+
+        private void Bugs_Load(object sender, EventArgs e)
+        {
+            panelBugs.AutoScroll = false;
+            panelBugs.HorizontalScroll.Enabled = false;
+            panelBugs.HorizontalScroll.Visible = false;
+            panelBugs.HorizontalScroll.Maximum = 0;
+            panelBugs.AutoScroll = true;
+
+            panelAssigned.AutoScroll = false;
+            panelAssigned.HorizontalScroll.Enabled = false;
+            panelAssigned.HorizontalScroll.Visible = false;
+            panelAssigned.HorizontalScroll.Maximum = 0;
+            panelAssigned.AutoScroll = true;
+        }
+    }
