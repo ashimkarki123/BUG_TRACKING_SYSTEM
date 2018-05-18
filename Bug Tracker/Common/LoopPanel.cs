@@ -13,8 +13,14 @@ namespace Bug_Tracker.Common
 {
     class LoopPanel
     {
-        //public int rowId = 0;
-        public void loopPanel(List<BugViewModel> list, Panel mainPanel, Form closingFrame)
+        /// <summary>
+        /// used to show all the bugs
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="mainPanel"></param>
+        /// <param name="closingFrame"></param>
+        /// <param name="openingForm"></param>
+        public void loopPanel(List<BugViewModel> list, Panel mainPanel, Form closingFrame, Form openingForm)
         {
             int x = 56;
             foreach (var bug in list)
@@ -34,7 +40,7 @@ namespace Bug_Tracker.Common
                 void toolStripClick(object sender, EventArgs e)
                 {
                     Program.bugId = Convert.ToInt32(panel.Text);
-                    new UpdateBug().Show();
+                    openingForm.Show();
                     closingFrame.Dispose();
                 }
 

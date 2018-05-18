@@ -11,7 +11,7 @@ namespace Bug_Tracker.Model
     /// </summary>
     class BugInformationViewModel
     {
-        public int InformationId { get; set; }
+        public int? InformationId { get; set; }
         public int BugId { get; set; }
         public string Cause { get; set; }
         public string Symptons { get; set; }

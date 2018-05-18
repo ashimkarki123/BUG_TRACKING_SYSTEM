@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="Common\LoopPanel.cs" />
     <Compile Include="DAOImp\GenericDaoImp.cs" />
+    <Compile Include="DAO\AssignDAO.cs" />
+    <Compile Include="DAO\BugInformationDAO.cs" />
     <Compile Include="DAO\SystemAdminDAO.cs" />
     <Compile Include="DAO\BugDAO.cs" />
     <Compile Include="DAO\CodeDAO.cs" />
