@@ -1,4 +1,5 @@
-﻿using Bug_Tracker.DAO;
+﻿using Bug_Tracker.Common;
+using Bug_Tracker.DAO;
 using Bug_Tracker.Model;
 using System;
 using System.Collections;
@@ -36,13 +37,32 @@ namespace Bug_Tracker.Views
             panelAssigned.AutoScroll = true;
 
             BugDAO BugDAO = new BugDAO();
-            List<BugViewModel> list = BugDAO.getAllBugs();
-
-            foreach(var l in list)
+            try
             {
-                Console.WriteLine(l);
+                List<BugViewModel> list = BugDAO.getAllBugs();
+                var newLoopPanel = new LoopPanel();
+                var newUpdateBug = new UpdateBug(false);
+                newLoopPanel.loopPanel(list, panelBugs, this, newUpdateBug);
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
             }
 
+            try
+            {
+                List<BugViewModel> bug = BugDAO.GetAllBugsByProgrammerId(Login.userId);
+                var newLoopPanel = new LoopPanel();
+                var newUpdateBug = new UpdateBug(true);
+                newLoopPanel.loopPanel(bug, panelAssigned, this, newUpdateBug);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

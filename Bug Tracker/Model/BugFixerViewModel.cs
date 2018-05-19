@@ -15,5 +15,6 @@ namespace Bug_Tracker.Model
         public int FixBy { get; set; }
         public int BugId { get; set; }
         public DateTime FixDate { get; set; }
+        public ProgrammerViewModel Programmer { get; set; }
     }
 }

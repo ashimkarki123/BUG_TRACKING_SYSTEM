@@ -21,6 +21,10 @@ namespace Bug_Tracker.Views
         private string imageName;
         private string ImageName;
         private string imageSource;
+        private bool inserted = false;
+        private bool inserted1 = false;
+        private bool inserted2 = false;
+        private bool inserted3 = false;
         public Main()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -121,6 +125,14 @@ namespace Bug_Tracker.Views
             fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
             label7.Text = "Programming language: C#";
             programminLanguage = "CSharp";
+
+            ProjectDAO projectDAO = new ProjectDAO();
+            List<string> list = projectDAO.GetAllProjectByUserId();
+
+            foreach (string projectName in list)
+            {
+                comboBox1.Items.Add(projectName);
+            }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,21 +218,33 @@ namespace Bug_Tracker.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //bug
-            BugViewModel bug = new BugViewModel
+           /// if (string.IsNullOrEmpty(comboBox1.SelectedItem.ToString()) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox7.Text))
+           /// {
+                MessageBox.Show("You must add all project information");
+           /// }
+           /// else if (string.IsNullOrEmpty(fastColoredTextBox1.Text))
+           /// {
+           ///     MessageBox.Show("Code field cann't be null");
+           ///}
+           ///else
+           ///{
+                //bug
+                BugViewModel bug = new BugViewModel
             {
-                ProjectName = textBox1.Text,
+                ProjectName = comboBox1.SelectedItem.ToString(),
                 ClassName = textBox2.Text,
                 MethodName = textBox3.Text,
                 StartLine = Convert.ToInt16(textBox4.Text),
                 EndLine = Convert.ToInt16(textBox5.Text),
-                ProgrammerId = Login.userId
+                ProgrammerId = Login.userId,
+                Status = "0"
             };
 
             try
             {
                 BugDAO bugDao = new BugDAO();
                 bugDao.Insert(bug);
+                inserted = true;
             } catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -228,7 +252,8 @@ namespace Bug_Tracker.Views
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //image
 
-
+            if (!string.IsNullOrEmpty(imageName))
+            { 
             string appPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\code_image\";
             Bug_Tracker.Model.PictureViewModel image = new Bug_Tracker.Model.PictureViewModel
             {
@@ -277,15 +302,42 @@ namespace Bug_Tracker.Views
                         sw.WriteLine(c);
                     }
                 }
+
+                inserted2 = true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////Link
 
+                VersionControl sourceControl = new VersionControl
+                {
+                    Link = textBox1.Text,
+                    StartLine = Convert.ToInt32(textBox6.Text),
+                    EndLine = Convert.ToInt32(textBox7.Text),
+                    BugId = bug.BugId
+                };
 
-            //Bug bug = new Bug { BugId = }
+                VersionControlDAO sourceControlDAO = new VersionControlDAO();
+
+                try
+                {
+                    sourceControlDAO.Insert(sourceControl);
+                    inserted3 = true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                MessageBox.Show("Added");
+
+            }
         }
+
+
 
         private void toolStripSeparator5_Click(object sender, EventArgs e)
         {
@@ -295,6 +347,37 @@ namespace Bug_Tracker.Views
         private void allBugsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Bugs().Show();
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.V))
+            {
+                try
+                {
+                    (sender as TextBox).Paste();
+                    label8.Text = textBox1.Text;
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private void fastColoredTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(label8.Text);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(label8.Text);
         }
     }
 }

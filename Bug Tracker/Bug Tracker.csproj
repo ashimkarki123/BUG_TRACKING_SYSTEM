@@ -72,6 +72,7 @@
     <Compile Include="Common\LoopPanel.cs" />
     <Compile Include="DAOImp\GenericDaoImp.cs" />
     <Compile Include="DAO\AssignDAO.cs" />
+    <Compile Include="DAO\BugFixerDAO.cs" />
     <Compile Include="DAO\BugInformationDAO.cs" />
     <Compile Include="DAO\SystemAdminDAO.cs" />
     <Compile Include="DAO\BugDAO.cs" />
@@ -164,6 +165,18 @@
     <Compile Include="Views\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SymptomsAndCause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SymptomsAndCause.Designer.cs">
+      <DependentUpon>SymptomsAndCause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TesterDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TesterDash.Designer.cs">
+      <DependentUpon>TesterDash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpdateBug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SymptomsAndCause.resx">
+      <DependentUpon>SymptomsAndCause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TesterDash.resx">
+      <DependentUpon>TesterDash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UpdateBug.resx">
       <DependentUpon>UpdateBug.cs</DependentUpon>

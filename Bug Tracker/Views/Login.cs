@@ -61,7 +61,7 @@ namespace Bug_Tracker.Views
                     {
                         userId = new TesterDAO().IsLogin(username, password);
                         this.Hide();
-                        new Main().Show();
+                        new TesterDash().Show();
                     }
                     else
                     {

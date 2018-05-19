@@ -118,5 +118,62 @@ namespace Bug_Tracker.DAO
         {
             throw new NotImplementedException();
         }
+        public List<string> GetAllAssignedUsersByBugId(int bugId)
+        {
+            conn.Open();
+            List<string> list = new List<string>();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.CommandText = "SELECT p.full_name FROM tbl_programmer p JOIN tbl_assign a ON a.assign_to = p.programmer_id AND bug_id = @bugId";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@bugId", bugId);
+                using (SqlDataReader reader = sql.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(reader[0].ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return list;
+        }
+
+        public bool RemoveAssignedUser(int bugId, int userId)
+        {
+            conn.Open();
+
+            try
+            {
+                SqlCommand sql = new SqlCommand(null, conn);
+                sql.CommandText = "DELETE FROM tbl_assign WHERE bug_id=@bug_id AND assign_to = @assignTo;";
+                sql.Prepare();
+                sql.Parameters.AddWithValue("@bug_id", bugId);
+                sql.Parameters.AddWithValue("@bug_id", userId);
+
+                sql.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

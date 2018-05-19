@@ -17,5 +17,6 @@ namespace Bug_Tracker.Model
         public int AssignTo { get; set; }
         public DateTime? AssignDate { get; set; }
         public string Description { get; set; }
+        public ProgrammerViewModel programmer { get; set; }
     }
 }

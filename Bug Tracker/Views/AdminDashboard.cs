@@ -243,5 +243,10 @@ namespace Bug_Tracker.Views
             listBox1.Items.Clear();
             GetAllProgrammer();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
