@@ -61,7 +61,7 @@ namespace Bug_Tracker.Views
 
 
             //binding value to related labels and textbox
-            label1.Text = bug.ProjectName;
+            label2.Text = bug.ProjectName;
             textBox2.Text = bug.ClassName;
             textBox3.Text = bug.MethodName;
             textBox4.Text = bug.StartLine.ToString();
@@ -201,7 +201,7 @@ namespace Bug_Tracker.Views
             string codeFilePath = bug.Codes.CodeFilePath;
             string c = fastColoredTextBox1.Text;
 
-            FixerDAO fixerDAO = new FixerDAO();
+            BugFixerDAO fixerDAO = new BugFixerDAO();
             BugDAO bugDAO = new BugDAO();
 
             BugFixerViewModel fixer = new BugFixerViewModel

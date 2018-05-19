@@ -141,6 +141,12 @@
     <Compile Include="Views\Bugs.Designer.cs">
       <DependentUpon>Bugs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\BugStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BugStatus.Designer.cs">
+      <DependentUpon>BugStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Bugs.resx">
       <DependentUpon>Bugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BugStatus.resx">
+      <DependentUpon>BugStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

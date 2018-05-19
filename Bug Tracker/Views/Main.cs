@@ -218,126 +218,127 @@ namespace Bug_Tracker.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-           /// if (string.IsNullOrEmpty(comboBox1.SelectedItem.ToString()) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox7.Text))
-           /// {
+            if (string.IsNullOrEmpty(comboBox1.SelectedItem.ToString()) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox7.Text))
+            {
                 MessageBox.Show("You must add all project information");
-           /// }
-           /// else if (string.IsNullOrEmpty(fastColoredTextBox1.Text))
-           /// {
-           ///     MessageBox.Show("Code field cann't be null");
-           ///}
-           ///else
-           ///{
+            }
+            else if (string.IsNullOrEmpty(fastColoredTextBox1.Text))
+            {
+                MessageBox.Show("Code field cann't be null");
+            }
+            else
+            {
                 //bug
                 BugViewModel bug = new BugViewModel
-            {
-                ProjectName = comboBox1.SelectedItem.ToString(),
-                ClassName = textBox2.Text,
-                MethodName = textBox3.Text,
-                StartLine = Convert.ToInt16(textBox4.Text),
-                EndLine = Convert.ToInt16(textBox5.Text),
-                ProgrammerId = Login.userId,
-                Status = "0"
-            };
-
-            try
-            {
-                BugDAO bugDao = new BugDAO();
-                bugDao.Insert(bug);
-                inserted = true;
-            } catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //image
-
-            if (!string.IsNullOrEmpty(imageName))
-            { 
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\code_image\";
-            Bug_Tracker.Model.PictureViewModel image = new Bug_Tracker.Model.PictureViewModel
-            {
-                ImagePath = "code_image",
-                ImageName = imageName,
-                BugId = bug.BugId
-            };
-
-            try
-            {
-                ImageDAO codeDao = new ImageDAO();
-                codeDao.Insert(image);
-
-                File.Copy(imageName, appPath + ImageName);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ////code
-            string c = fastColoredTextBox1.Text;
-            string codeFileName = DateTime.Now.Second.ToString();
-
-            CodeViewModel code = new CodeViewModel
-            {
-                CodeFilePath = "code",
-                CodeFileName = codeFileName,
-                ProgrammingLanguage = programminLanguage,
-                BugId = bug.BugId
-            };
-
-            try
-            {
-                CodeDAO codeDao = new CodeDAO();
-                codeDao.Insert(code);
-
-                string path = "code/"+ codeFileName + ".txt";
-                if (!File.Exists(path))
                 {
-                    // Create a file to write to.
-                    using (StreamWriter sw = File.CreateText(path))
-                    {
-                        sw.WriteLine(c);
-                    }
-                }
-
-                inserted2 = true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                ////Link
-
-                VersionControl sourceControl = new VersionControl
-                {
-                    Link = textBox1.Text,
-                    StartLine = Convert.ToInt32(textBox6.Text),
-                    EndLine = Convert.ToInt32(textBox7.Text),
-                    BugId = bug.BugId
+                    ProjectName = comboBox1.SelectedItem.ToString(),
+                    ClassName = textBox2.Text,
+                    MethodName = textBox3.Text,
+                    StartLine = Convert.ToInt16(textBox4.Text),
+                    EndLine = Convert.ToInt16(textBox5.Text),
+                    ProgrammerId = Login.userId,
+                    Status = "0"
                 };
-
-                VersionControlDAO sourceControlDAO = new VersionControlDAO();
 
                 try
                 {
-                    sourceControlDAO.Insert(sourceControl);
-                    inserted3 = true;
+                    BugDAO bugDao = new BugDAO();
+                    bugDao.Insert(bug);
+                    inserted = true;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //image
 
-                MessageBox.Show("Added");
+                if (!string.IsNullOrEmpty(imageName))
+                {
+                    string appPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\code_image\";
+                    Bug_Tracker.Model.PictureViewModel image = new Bug_Tracker.Model.PictureViewModel
+                    {
+                        ImagePath = "code_image",
+                        ImageName = imageName,
+                        BugId = bug.BugId
+                    };
 
+                    try
+                    {
+                        ImageDAO codeDao = new ImageDAO();
+                        codeDao.Insert(image);
+
+                        File.Copy(imageName, appPath + ImageName);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////code
+                    string c = fastColoredTextBox1.Text;
+                    string codeFileName = DateTime.Now.Second.ToString();
+
+                    CodeViewModel code = new CodeViewModel
+                    {
+                        CodeFilePath = "code",
+                        CodeFileName = codeFileName,
+                        ProgrammingLanguage = programminLanguage,
+                        BugId = bug.BugId
+                    };
+
+                    try
+                    {
+                        CodeDAO codeDao = new CodeDAO();
+                        codeDao.Insert(code);
+
+                        string path = "code/" + codeFileName + ".txt";
+                        if (!File.Exists(path))
+                        {
+                            // Create a file to write to.
+                            using (StreamWriter sw = File.CreateText(path))
+                            {
+                                sw.WriteLine(c);
+                            }
+                        }
+
+                        inserted2 = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////Link
+
+                    VersionControl sourceControl = new VersionControl
+                    {
+                        Link = textBox1.Text,
+                        StartLine = Convert.ToInt32(textBox6.Text),
+                        EndLine = Convert.ToInt32(textBox7.Text),
+                        BugId = bug.BugId
+                    };
+
+                    VersionControlDAO sourceControlDAO = new VersionControlDAO();
+
+                    try
+                    {
+                        sourceControlDAO.Insert(sourceControl);
+                        inserted3 = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    MessageBox.Show("Added");
+
+                }
             }
+
         }
-
-
 
         private void toolStripSeparator5_Click(object sender, EventArgs e)
         {
@@ -370,14 +371,40 @@ namespace Bug_Tracker.Views
 
         }
 
-        private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(label8.Text);
-        }
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(label8.Text);
+            try
+            {
+                System.Diagnostics.Process.Start(label8.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void textBox1_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.V))
+            {
+                try
+                {
+                    (sender as TextBox).Paste();
+                    linkLabel1.Text = textBox1.Text;
+                }
+                catch (NullReferenceException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            new Login().Show();
         }
     }
 }

@@ -248,5 +248,10 @@ namespace Bug_Tracker.Views
         {
 
         }
+
+        private void bugStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new BugStatus().Show();
+        }
     }
 }

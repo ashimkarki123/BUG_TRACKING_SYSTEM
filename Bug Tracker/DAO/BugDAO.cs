@@ -309,7 +309,7 @@ namespace Bug_Tracker.DAO
             {
                 SqlCommand sql = new SqlCommand(null, conn);
                 sql.Transaction = trans;
-                sql.CommandText = "SELECT * FROM tbl_bug b JOIN tbl_code c ON b.bug_id = c.bug_id JOIN tbl_image i ON b.bug_id = i.bug_id JOIN tbl_source_control sc ON sc.bug_id = i.bug_id WHERE bug_status = 0 AND b.code_author = @id;";
+                sql.CommandText = "SELECT* FROM tbl_programmer p JOIN tbl_assign a ON a.assign_to = p.programmer_id JOIN tbl_bug b ON b.bug_id = a.bug_id JOIN tbl_image i ON b.bug_id = i.bug_id JOIN tbl_source_control sc ON sc.bug_id = i.bug_id JOIN tbl_code c ON c.bug_id = b.bug_id WHERE a.assign_to = @id AND b.bug_status = '0';";
                 sql.Prepare();
                 sql.Parameters.AddWithValue("@id", id);
 

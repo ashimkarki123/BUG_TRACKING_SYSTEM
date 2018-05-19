@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bug_Tracker.DAO
 {
-    class FixerDAO : GenericDAO<BugFixerViewModel>
+    class BugFixerDAO : GenericDAO<BugFixerViewModel>
     {
         private SqlConnection conn = new DBConnection().GetConnection();
         public bool Delete(int id)
@@ -85,7 +85,7 @@ namespace Bug_Tracker.DAO
                         programmer = new ProgrammerViewModel();
 
                         fixer.BugId = Convert.ToInt32(reader["bug_id"]);
-                        fixer.FixDate = DateTime.Parse(reader["bug_id"].ToString());
+                        fixer.FixDate = Convert.ToDateTime(reader["fixed_date"]);
                         programmer.FullName = reader["full_name"].ToString();
 
                         fixer.Programmer = programmer;

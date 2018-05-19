@@ -154,6 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightYellow;
             this.ClientSize = new System.Drawing.Size(1118, 527);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.listBox1);
@@ -169,6 +170,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SymptomsAndCause";
             this.Text = "SymptomsAndCause";
+            this.Load += new System.EventHandler(this.SymptomsAndCause_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

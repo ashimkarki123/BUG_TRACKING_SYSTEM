@@ -48,6 +48,7 @@ namespace Bug_Tracker.Views
                     if (new ProgrammerDAO().IsLogin(username, password) > 0)
                     {
                         userId = new ProgrammerDAO().IsLogin(username, password);
+                        Program.isTester = false;
                         this.Hide();
                         new Main().Show();
                     } else
@@ -60,6 +61,7 @@ namespace Bug_Tracker.Views
                     if (new TesterDAO().IsLogin(username, password) > 0)
                     {
                         userId = new TesterDAO().IsLogin(username, password);
+                        Program.isTester = true;
                         this.Hide();
                         new TesterDash().Show();
                     }

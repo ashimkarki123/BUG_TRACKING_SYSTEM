@@ -49,6 +49,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBoxUpdate = new System.Windows.Forms.TextBox();
+            this.bugStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +100,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addUserToComapnyToolStripMenuItem,
             this.logoutToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.bugStatusToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -252,11 +254,18 @@
             this.textBoxUpdate.Size = new System.Drawing.Size(235, 20);
             this.textBoxUpdate.TabIndex = 13;
             // 
+            // bugStatusToolStripMenuItem
+            // 
+            this.bugStatusToolStripMenuItem.Name = "bugStatusToolStripMenuItem";
+            this.bugStatusToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.bugStatusToolStripMenuItem.Text = "Bug status";
+            this.bugStatusToolStripMenuItem.Click += new System.EventHandler(this.bugStatusToolStripMenuItem_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.LightSalmon;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBoxUpdate);
             this.Controls.Add(this.btnAdd);
@@ -307,5 +316,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TextBox textBoxUpdate;
+        private System.Windows.Forms.ToolStripMenuItem bugStatusToolStripMenuItem;
     }
 }

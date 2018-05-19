@@ -27,9 +27,6 @@ namespace Bug_Tracker.Views
             BugDAO bug = new BugDAO();
             loop.loopPanel(bug.getAllBugs(), panel1, this, new UpdateBug(false));
         }
-        private void TesterDash_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

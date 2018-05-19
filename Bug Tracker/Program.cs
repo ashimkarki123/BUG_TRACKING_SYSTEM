@@ -13,6 +13,7 @@ namespace Bug_Tracker
         public static int adminId = 0;
         public static int userId = 0;
         public static int bugId = 0;
+        public static bool isTester = false;
 
         /// <summary>
         /// The main entry point for the application.
