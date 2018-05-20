@@ -36,6 +36,7 @@
             this.addUserToComapnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bugStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -49,7 +50,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.textBoxUpdate = new System.Windows.Forms.TextBox();
-            this.bugStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -130,12 +130,19 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // bugStatusToolStripMenuItem
+            // 
+            this.bugStatusToolStripMenuItem.Name = "bugStatusToolStripMenuItem";
+            this.bugStatusToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.bugStatusToolStripMenuItem.Text = "Bug status";
+            this.bugStatusToolStripMenuItem.Click += new System.EventHandler(this.bugStatusToolStripMenuItem_Click);
+            // 
             // listView1
             // 
             this.listView1.FormattingEnabled = true;
             this.listView1.Location = new System.Drawing.Point(23, 163);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(272, 264);
+            this.listView1.Size = new System.Drawing.Size(235, 199);
             this.listView1.TabIndex = 5;
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -164,11 +171,11 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(622, 52);
+            this.button2.Location = new System.Drawing.Point(622, 50);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 23);
+            this.button2.Size = new System.Drawing.Size(166, 25);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Add new programmer";
+            this.button2.Text = "Signup for new user";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -186,7 +193,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.Red;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(74, 265);
+            this.button6.Location = new System.Drawing.Point(26, 239);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(99, 38);
             this.button6.TabIndex = 12;
@@ -198,18 +205,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(70, 11);
+            this.label3.Location = new System.Drawing.Point(22, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(245, 20);
+            this.label3.Size = new System.Drawing.Size(298, 20);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Users associated with this project";
+            this.label3.Text = "Programmers associated with this project";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(74, 34);
+            this.listBox1.Location = new System.Drawing.Point(26, 34);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(194, 225);
+            this.listBox1.Size = new System.Drawing.Size(194, 199);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -254,18 +261,11 @@
             this.textBoxUpdate.Size = new System.Drawing.Size(235, 20);
             this.textBoxUpdate.TabIndex = 13;
             // 
-            // bugStatusToolStripMenuItem
-            // 
-            this.bugStatusToolStripMenuItem.Name = "bugStatusToolStripMenuItem";
-            this.bugStatusToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.bugStatusToolStripMenuItem.Text = "Bug status";
-            this.bugStatusToolStripMenuItem.Click += new System.EventHandler(this.bugStatusToolStripMenuItem_Click);
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSalmon;
+            this.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBoxUpdate);
             this.Controls.Add(this.btnAdd);

@@ -15,7 +15,10 @@ namespace Bug_Tracker.Views
     {
         public Admin()
         {
+            
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,6 +50,17 @@ namespace Bug_Tracker.Views
                     MessageBox.Show("Either username or password is wrong");
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form1().Show();
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

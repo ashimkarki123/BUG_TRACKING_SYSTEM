@@ -33,6 +33,7 @@ namespace Bug_Tracker.Views
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+            new AdminDashboard().Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

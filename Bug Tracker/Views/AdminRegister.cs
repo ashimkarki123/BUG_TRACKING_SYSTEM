@@ -16,6 +16,7 @@ namespace Bug_Tracker.Views
         public AdminRegister()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,6 +53,13 @@ namespace Bug_Tracker.Views
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Admin().Show();
+
         }
     }
 }

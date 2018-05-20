@@ -317,6 +317,14 @@ namespace Bug_Tracker.Views
 
             MessageBox.Show("Updated");
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
+            Program.userId = 0;
+
+        }
     }
     
 }

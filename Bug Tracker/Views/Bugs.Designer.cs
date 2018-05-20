@@ -38,7 +38,7 @@
             // 
             // panelBugs
             // 
-            this.panelBugs.BackColor = System.Drawing.Color.Brown;
+            this.panelBugs.BackColor = System.Drawing.Color.OliveDrab;
             this.panelBugs.Controls.Add(this.label1);
             this.panelBugs.ForeColor = System.Drawing.SystemColors.Window;
             this.panelBugs.Location = new System.Drawing.Point(-3, 4);
@@ -59,7 +59,7 @@
             // 
             // panelAssigned
             // 
-            this.panelAssigned.BackColor = System.Drawing.Color.LimeGreen;
+            this.panelAssigned.BackColor = System.Drawing.Color.YellowGreen;
             this.panelAssigned.Controls.Add(this.label2);
             this.panelAssigned.ForeColor = System.Drawing.SystemColors.Window;
             this.panelAssigned.Location = new System.Drawing.Point(-3, 291);
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 564);
+            this.ClientSize = new System.Drawing.Size(1030, 564);
             this.Controls.Add(this.panelAssigned);
             this.Controls.Add(this.panelBugs);
             this.Name = "Bugs";

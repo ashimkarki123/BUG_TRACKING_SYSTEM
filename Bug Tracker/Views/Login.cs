@@ -77,6 +77,7 @@ namespace Bug_Tracker.Views
         {
             //opening new windows form
             Application.Exit();
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,6 +95,17 @@ namespace Bug_Tracker.Views
         {
             this.Hide();
             new AboutUs().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form1().Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

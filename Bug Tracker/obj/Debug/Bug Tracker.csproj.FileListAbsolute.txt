@@ -68,7 +68,6 @@ E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Admin.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.AdminDashboard.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.AdminRegister.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Bugs.resources
-E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Dashboard.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Login.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Main.resources
 E:\Bug-Tracking-System\Bug Tracker\obj\Debug\Bug_Tracker.Views.Register.resources

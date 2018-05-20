@@ -1,3 +1,4 @@
+
 public UpdateBug(bool disableButtons)
         {
             InitializeComponent();

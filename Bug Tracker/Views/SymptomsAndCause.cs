@@ -21,7 +21,7 @@ namespace Bug_Tracker.Views
         public SymptomsAndCause()
         {
             InitializeComponent();
-            button4.Hide();
+            //button4.Hide();
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -53,20 +53,20 @@ namespace Bug_Tracker.Views
                 }
             }
         }
-        private void SymptonsAndAssign_Load(object sender, EventArgs e)
-        {
+        //private void SymptonsAndAssign_Load(object sender, EventArgs e)
+        //{
             
 
-        }
+        //}
 
         private void assignedUser()
         {
-            listBox1.Items.Clear();
+            //listBox1.Items.Clear();
             AssignDAO assignDAO = new AssignDAO();
             List<string> assignList = assignDAO.GetAllAssignedUsersByBugId(Program.bugId);
             foreach (var a in assignList)
             {
-                listBox1.Items.Add(a);
+                //listBox1.Items.Add(a);
             }
         }
 
@@ -177,14 +177,19 @@ namespace Bug_Tracker.Views
             {
                 comboBox1.Hide();
                 label3.Hide();
-                textBox3.Hide();
+/*                textBox3.Hide()*/;
                 button3.Hide();
-                listBox1.Hide();
+                //listBox1.Hide();
                 button1.Hide();
                 button2.Hide();
                 button2.Enabled = false;
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
+                button1.Enabled = false;
+                AssignDAO showMessage = new AssignDAO();
+                AssignViewModel message = showMessage.GetById(Program.bugId);
+                textBox3.Text = message.Description;
+                textBox3.Enabled = false;
             }
 
             BugInformationDAO bugInformationDAO = new BugInformationDAO();
